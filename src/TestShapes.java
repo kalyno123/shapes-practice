@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,12 +15,11 @@ public class TestShapes {
         This will be our actual program that we request some information from user to create 3 objects
         We will create 1 Rectangle, 1 Square and 1 Circle object
 
-        Information to create objects will be as below
+        Information to create objects will be as below:
          -width of the rectangle = 5.5
          -height of the rectangle = 6
          -side of the square = 2.5
          -radius of the circle = 4
-
 
          Then print each object
          And print area and perimeters of each object
@@ -40,6 +40,42 @@ public class TestShapes {
 
          Circle has the largest area as 50.24
          */
+
+        //Shape rectangle = new Rectangle(); -- for fun explain what this means
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(5.5);
+        rectangle.setHeight(6);
+
+        Square square = new Square();
+        square.setSide(2.5);
+
+        Circle circle = new Circle();
+        circle.setRadius(4);
+
+        List<Shape> shapes = new ArrayList<>();
+        shapes.add(circle);
+        shapes.add(rectangle);
+        shapes.add(square);
+
+        double max = Double.MIN_VALUE;
+        Shape maxArea = null;
+        for (Shape element : shapes){
+            System.out.println(element);
+            System.out.println("Area of the " + element.getClass().getSimpleName() + " is = " + element.area());
+            System.out.println("Perimeter of the " + element.getClass().getSimpleName() + " is = " + element.perimeter() + "\n");
+
+            if (element.area() > max) {
+                max = element.area();
+                maxArea = element;
+            }
+        }
+        System.out.println(maxArea.getClass().getSimpleName() + " has the largest area as " + maxArea.area());
+
+
+
+
+
 
 
     }
